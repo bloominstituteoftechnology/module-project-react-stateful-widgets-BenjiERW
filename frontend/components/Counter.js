@@ -49,16 +49,22 @@ import React from 'react'; /* STEP 0 */
 
 export default function Counter() {
   /* STEP 1 */
+  const [count, setCount] = useState(0)
 
   const increment = () => {
     /* STEP 4 */
+    setCount(count + 1)
   };
   const decrement = () => {
     /* STEP 5 */
+    setCount(count - 1)
   };
   const reset = () => {
     /* STEP 6 */
+    setCount(0)
   };
+
+  const isEven = count % 2 === 0;
 
   const style = {
     fontSize: '1.5em',
@@ -70,7 +76,7 @@ export default function Counter() {
     <div className='widget-counter container'>
       <h2>Counter</h2>
       <div id='count' style={style}>
-        Number 0 is even {/* STEP 3 */}
+        Number {count} is {count % 2 === 0 ?  'even' : 'odd'}  {/* STEP 3 */}
       </div>
       <div>
         <button id='increment' onClick={increment}>Increment</button>
@@ -80,3 +86,4 @@ export default function Counter() {
     </div>
   );
 }
+
